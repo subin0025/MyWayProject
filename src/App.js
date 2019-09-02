@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Coordinate from './components/Coordinate'
+import CoordinateAdd from './components/CoordinateAdd'
 
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
@@ -30,21 +31,24 @@ class App extends Component {
 
   render() {
     return (
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>번호</TableCell>
-            <TableCell>이미지</TableCell>
-            <TableCell>세로위치</TableCell>
-            <TableCell>가로위치</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {this.state.coordinates ? this.state.coordinates.map(c => {
-            return <Coordinate key={c.id} id={c.id} name={c.name} row={c.row} col={c.col} />
-          }) : ''}
-        </TableBody>
-      </Table>
+      <div>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>번호</TableCell>
+              <TableCell>이미지</TableCell>
+              <TableCell>세로위치</TableCell>
+              <TableCell>가로위치</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {this.state.coordinates ? this.state.coordinates.map(c => {
+              return <Coordinate key={c.id} id={c.id} name={c.name} row={c.row} col={c.col} />
+            }) : ''}
+          </TableBody>
+        </Table>
+        <CoordinateAdd />
+      </div>
     );
   }
 
