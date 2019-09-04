@@ -9,13 +9,13 @@ import Button from '@material-ui/core/Button';
 
 
 class CoordinateAdd extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            id : null,
-            name : '',
-            row : null,
-            col : null,
+            id: null,
+            name: '',
+            row: null,
+            col: null,
             open: false
         }
     }
@@ -27,10 +27,10 @@ class CoordinateAdd extends React.Component {
     }
     handleClose = () => {
         this.setState({
-            id : null,
-            name : '',
-            row : null,
-            col : null,
+            id: null,
+            name: '',
+            row: null,
+            col: null,
             open: false
         })
 
@@ -38,16 +38,16 @@ class CoordinateAdd extends React.Component {
     }
     handleFormSubmit = (e) => {
         e.preventDefault()
-          this.addCoordinate()
-              .then((response) => {
-                  console.log(response.data);
-                  this.props.stateRefresh();
-              })
+        this.addCoordinate()
+            .then((response) => {
+                console.log(response.data);
+                this.props.stateRefresh();
+            })
         this.setState({
-            id : null,
-            name : '',
-            row : null,
-            col : null,
+            id: null,
+            name: '',
+            row: null,
+            col: null,
             open: false
         })
 
@@ -58,13 +58,13 @@ class CoordinateAdd extends React.Component {
         nextState[e.target.name] = e.target.value;
         this.setState(nextState);
     }
-    addCoordinate = () =>{
+    addCoordinate = () => {
         const url = '/api/coordinate';
         const formData = new FormData();
-        formData.append('id',this.state.id);
-        formData.append('name',this.state.name);
-        formData.append('row',this.state.row);
-        formData.append('col',this.state.col);
+        formData.append('id', this.state.id);
+        formData.append('name', this.state.name);
+        formData.append('row', this.state.row);
+        formData.append('col', this.state.col);
         const config = {
             headers: {
                 'Content-Type': 'application/json'
@@ -90,8 +90,6 @@ class CoordinateAdd extends React.Component {
                     </DialogActions>
                 </Dialog>
             </div>
-
-
         )
     }
 }

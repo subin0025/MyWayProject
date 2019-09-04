@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Coordinate from './components/Coordinate'
 import CoordinateAdd from './components/CoordinateAdd'
+import Map from './Map'
 
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
@@ -32,6 +33,7 @@ class App extends Component {
   render() {
     return (
       <div>
+      <Map/>
         <Table>
           <TableHead>
             <TableRow>
